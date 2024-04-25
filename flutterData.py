@@ -92,21 +92,21 @@ class dyFlutter(tornado.web.RequestHandler):
         url = self.request.uri
 
         if re.search('/nav', url, re.I):
-            data["data"] = json_encode(nav)
+            data["data"] = nav
         elif re.search('/swiper', url, re.I):
-            data["data"] =  json_encode(swiperPic)
+            data["data"] = swiperPic
         elif re.search('/broadcast', url, re.I):
-            data["data"] = json_encode(broadcastSwiper)
+            data["data"] = broadcastSwiper
         elif re.search('/liveData', url, re.I):
             data = self.getliveData()
         elif re.search('/giftData', url, re.I):
-            data["data"] = json_encode(giftData)
+            data["data"] = giftData
         elif re.search('/msgData', url, re.I):
-            data["data"] = json_encode(msgData)
+            data["data"] = msgData
         elif re.search('/yubaList', url, re.I):
-            data["data"] = json_encode(self.addId(yubaList))
+            data["data"] = self.addId(yubaList)
         elif re.search('/lotteryConfig', url, re.I):
-            data["data"] = json_encode(lotteryConfig)
+            data["data"] = lotteryConfig
         elif re.search('/lotteryResult', url, re.I):
             await asyncio.sleep(.9)
             data["data"] = self.lotteryResult()
